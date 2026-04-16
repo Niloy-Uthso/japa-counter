@@ -3,20 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spiritual Counter</title>
+  <title>Japa Counter</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Spiritual Counter</h1>
-    <div class="display">
-      <div>Count: <span id="count">0</span></div>
-      <div>Round: <span id="round">0</span></div>
-      <div>Goals: <span id="goal">0</span></div>
+
+  <div class="top-panel">
+    <h2>Japa Counter 📿</h2>
+
+    <div class="controls">
+      <label>Target Mala:</label>
+      <input type="number" id="targetInput" placeholder="e.g. 5" />
     </div>
-    <button id="countBtn">Count</button>
-    <button id="resetBtn" class="secondary">Reset</button>
+
+    <div class="stats">
+      <p>Count: <span id="count">0</span></p>
+      <p>Round: <span id="round">0</span></p>
+    </div>
+
+    <button id="resetBtn">Reset</button>
   </div>
-  <script src="./script.js"></script>
+
+  <!-- FULL SCREEN BUTTON -->
+  <div id="tapArea">TAP</div>
+
+  <audio id="alarmSound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"></audio>
+
+  <script src="script.js"></script>
 </body>
 </html>

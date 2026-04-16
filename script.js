@@ -1,30 +1,38 @@
 let count = 0;
 let round = 0;
-let goal = 0;
+let target = 0;
 
-const countSpan = document.getElementById('count');
-const roundSpan = document.getElementById('round');
-const goalSpan = document.getElementById('goal');
+const countSpan = document.getElementById("count");
+const roundSpan = document.getElementById("round");
+const targetInput = document.getElementById("targetInput");
+const tapArea = document.getElementById("tapArea");
+const alarm = document.getElementById("alarmSound");
 
-document.getElementById('countBtn').addEventListener('click', () => {
+// Tap to count
+tapArea.addEventListener("click", () => {
   count++;
-  if (count > 100) {
-    count = 1;
+
+  if (count === 108) {
+    count = 0;
     round++;
-    if (round % 10 === 0) {
-      goal++;
-      goalSpan.textContent = goal;
-    }
     roundSpan.textContent = round;
+
+    // Check goal
+    target = parseInt(targetInput.value);
+
+    if (target && round === target) {
+      alarm.play();
+      alert("🎉 Japa Complete!");
+    }
   }
+
   countSpan.textContent = count;
 });
 
-document.getElementById('resetBtn').addEventListener('click', () => {
+// Reset
+document.getElementById("resetBtn").addEventListener("click", () => {
   count = 0;
   round = 0;
-  goal = 0;
-  countSpan.textContent = count;
-  roundSpan.textContent = round;
-  goalSpan.textContent = goal;
+  countSpan.textContent = 0;
+  roundSpan.textContent = 0;
 });
