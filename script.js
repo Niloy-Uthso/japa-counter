@@ -21,9 +21,22 @@ tapArea.addEventListener("click", () => {
     target = parseInt(targetInput.value);
 
     if (target && round === target) {
-      alarm.play();
-      alert("🎉 Japa Complete!");
-    }
+
+  // 🔒 Disable tap area
+  tapArea.style.pointerEvents = "none";
+  tapArea.style.opacity = "0.5"; // optional visual feedback
+
+  // 🔊 Play alarm
+  alarm.currentTime = 0;
+  alarm.play();
+
+  // ⏱ Stop after 4 seconds
+  setTimeout(() => {
+    alarm.pause();
+    alarm.currentTime = 0;
+  }, 6000);
+}
+     
   }
 
   countSpan.textContent = count;
